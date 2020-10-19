@@ -1,0 +1,23 @@
+
+
+<form  class="mx-auto" [formGroup]="encuesta" (ngSubmit)="onSubmit(encuesta)">
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+            <label for="InputEmail">Email</label>
+            <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp"  formControlName="email" placeholder="Su Email">    
+          </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                  <label for="InputTipoCocacola">Tipo Coca cola</label>
+                  <mat-select class="form-control" formControlName="tipoCocacola" [(ngModel)]="selectedValue" name="food">
+                    <mat-option *ngFor="let bebida of bebidas" [value]="bebida.value">
+                      {{bebida.viewValue}}
+                    </mat-option>
+                  </mat-select>
+              </div>
+        </div>
+      </div>
+      <button type="submit" [disabled]="encuesta.invalid" class="btn btn-primary">Enviar</button>
+  </form>
